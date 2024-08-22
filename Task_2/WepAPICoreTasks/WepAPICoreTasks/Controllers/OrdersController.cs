@@ -50,7 +50,7 @@ namespace WepAPICoreTasks.Controllers
         {
             if (name == null)
             {
-                return NotFound();
+                return BadRequest();
             }
         
             else
