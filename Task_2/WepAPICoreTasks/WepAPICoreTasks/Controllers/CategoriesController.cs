@@ -24,29 +24,23 @@ namespace WepAPICoreTasks.Controllers
         }
 
         [Route("GetById")]
-        [HttpGet("{id:int:min(5)}")]
+        [HttpGet("GetDataById{id:int:min(5)}")]
         public IActionResult get(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+         
             if (id < 0)
             {
                 return BadRequest();
             }
-            else
-            {
-                var category = db.Categories.Where(c => c.CategoryId == id);
-                return Ok(category);
 
-            }
-           
+            var category = db.Categories.Where(c => c.CategoryId == id);
+            return Ok(category);
+
         }
 
         [Route("GetByName")]
-        [HttpGet("{name}")]
-        public IActionResult get(string name)
+        [HttpGet("getname{name}")]
+        public IActionResult getname(string name)
         {
 
             if (name == null)
@@ -69,20 +63,20 @@ namespace WepAPICoreTasks.Controllers
         {
             //var category = db.Categories.Include(p => p.Products).Where(c => c.CategoryId == id).ExecuteDelete();
 
-            if (id == null)
-            {
-                return NotFound();
-            }
+
             if (id < 0)
             {
                 return BadRequest();
             }
-            else
-            {
-                var category = db.Categories.Remove(db.Categories.FirstOrDefault(c => c.CategoryId == id));
-                return Ok(category);
 
+            var remove = db.Categories.FirstOrDefault(c => c.CategoryId == id);
+            if (remove == null)
+            {
+                return NotFound(); 
             }
+            db.Categories.Remove(remove);
+            db.SaveChanges();
+            return Ok();
 
            
         }
