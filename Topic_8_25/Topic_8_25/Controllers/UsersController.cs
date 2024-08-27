@@ -51,24 +51,6 @@ namespace Topic_8_25.Controllers
             return Ok(product);
         }
 
-        //[HttpGet("OrderBy/")]
-        //public IActionResult price()
-        //{
-        //    var product = db.Products.OrderBy(p => p.Price).Select(p => new
-        //    {
-        //        p.ProductId,
-        //        p.ProductName,
-        //        p.ProductImage,
-        //        p.Price,
-        //        Category = new
-        //        {
-        //            p.Category.CategoryId,
-        //            p.Category.CategoryImage,
-        //            p.Category.CategoryName
-        //        }
-        //    }).ToList();
-        //    return Ok(product);
-        //}
 
         [HttpPost]
         public IActionResult AddProduct([FromForm] UserRequestDTO user)
