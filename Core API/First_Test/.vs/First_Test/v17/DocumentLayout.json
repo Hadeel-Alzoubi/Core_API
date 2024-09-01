@@ -1,0 +1,75 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Orange\\Desktop\\Core API\\First_Test\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E2CF5A54-2B5C-4C33-8ED1-540DE5026EB5}|First_Test\\First_Test.csproj|c:\\users\\orange\\desktop\\core api\\first_test\\first_test\\controllers\\hadeelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2CF5A54-2B5C-4C33-8ED1-540DE5026EB5}|First_Test\\First_Test.csproj|solutionrelative:first_test\\controllers\\hadeelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2CF5A54-2B5C-4C33-8ED1-540DE5026EB5}|First_Test\\First_Test.csproj|c:\\users\\orange\\desktop\\core api\\first_test\\first_test\\controllers\\valuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2CF5A54-2B5C-4C33-8ED1-540DE5026EB5}|First_Test\\First_Test.csproj|solutionrelative:first_test\\controllers\\valuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2CF5A54-2B5C-4C33-8ED1-540DE5026EB5}|First_Test\\First_Test.csproj|c:\\users\\orange\\desktop\\core api\\first_test\\first_test\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2CF5A54-2B5C-4C33-8ED1-540DE5026EB5}|First_Test\\First_Test.csproj|solutionrelative:first_test\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "hadeelController.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Core API\\First_Test\\First_Test\\Controllers\\hadeelController.cs",
+              "RelativeDocumentMoniker": "First_Test\\Controllers\\hadeelController.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\Core API\\First_Test\\First_Test\\Controllers\\hadeelController.cs",
+              "RelativeToolTip": "First_Test\\Controllers\\hadeelController.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAAAAADMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-19T10:09:34.085Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Core API\\First_Test\\First_Test\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "First_Test\\Models\\Category.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\Core API\\First_Test\\First_Test\\Models\\Category.cs",
+              "RelativeToolTip": "First_Test\\Models\\Category.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-19T08:40:55.683Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ValuesController.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Core API\\First_Test\\First_Test\\Controllers\\ValuesController.cs",
+              "RelativeDocumentMoniker": "First_Test\\Controllers\\ValuesController.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\Core API\\First_Test\\First_Test\\Controllers\\ValuesController.cs",
+              "RelativeToolTip": "First_Test\\Controllers\\ValuesController.cs",
+              "ViewState": "AQIAABcAAAAAAAAAAAAQwBsAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-19T08:31:27.337Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -126,5 +126,18 @@ namespace Topic_8_25.Controllers
             db.SaveChanges();
             return Ok();
         }
+
+
+        [HttpDelete("{removeID}")]
+        public IActionResult Gett(int removeID)
+        {
+            var products = db.Products.FirstOrDefault(p => p.ProductId == removeID);
+
+            db.Products.Remove(products);
+            db.SaveChanges();
+            //var products = db.Products.Remove(db.Products.FirstOrDefault(c => c.ProductId == removeID));
+            return Ok();
+        }
+
     }
 }

@@ -14,7 +14,6 @@ namespace WepAPICoreTasks.Controllers
             db = _db;
         }
 
-        [Route("GetAll")]
         [HttpGet]
         public IActionResult getAll()
         {
@@ -22,7 +21,6 @@ namespace WepAPICoreTasks.Controllers
             return Ok(order);
         }
 
-        [Route("GetById")]
         [HttpGet("GetDataById{id:int}")]
         public IActionResult get(int id)
         {
@@ -31,31 +29,29 @@ namespace WepAPICoreTasks.Controllers
             {
                 return BadRequest();
             }
-           
-                var order = db.Orders.Where(c => c.OrderId == id);
-                return Ok(order);
 
-         
+            var order = db.Orders.Where(c => c.OrderId == id);
+            return Ok(order);
+
+
         }
 
-        [Route("GetByName")]
-        [HttpGet("getname{name}")]
-        public IActionResult getname(int name)
-        {
-            if (name == null)
-            {
-                return BadRequest();
-            }
-            else
-            {
-                var order = db.Orders.Where(c => c.OrderId == name);
-                return Ok(order);
-            }
+        //[HttpGet("getname{name}")]
+        //public IActionResult getname(string name)
+        //{
+        //    if (name == null)
+        //    {
+        //        return BadRequest();
+        //    }
+        //    else
+        //    {
+        //        var order = db.Orders.Where(c => c. == name);
+        //        return Ok(order);
+        //    }
 
-        
-        }
 
-        [Route("DeleteById")]
+        //}
+
         [HttpDelete("{id}")]
         public IActionResult delete(int id)
         {
@@ -81,7 +77,7 @@ namespace WepAPICoreTasks.Controllers
                 return Ok();
             }
 
-         
+
         }
     }
 }

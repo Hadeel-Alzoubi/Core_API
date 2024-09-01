@@ -15,7 +15,7 @@ namespace WepAPICoreTasks.Controllers
             db = _db;
         }
 
-        [Route("GetAllId")]
+
         [HttpGet]
         public IActionResult getAll()
         {
@@ -23,12 +23,11 @@ namespace WepAPICoreTasks.Controllers
             return Ok(user);
         }
 
-        [Route("GetById")]
         [HttpGet("GetDataById{id:int}")]
         public IActionResult get(int id)
         {
 
-      
+
             if (id < 0)
             {
                 return BadRequest();
@@ -37,10 +36,9 @@ namespace WepAPICoreTasks.Controllers
             var user = db.Users.Where(c => c.UserId == id);
             return Ok(user);
 
-           
+
         }
 
-        [Route("GetByName")]
         [HttpGet("getname{name}")]
         public IActionResult getname(string name)
         {
@@ -49,18 +47,17 @@ namespace WepAPICoreTasks.Controllers
             {
                 return BadRequest();
             }
-      
+
             else
             {
                 var user = db.Users.Where(c => c.Username == name);
                 return Ok(user);
             }
 
-          
+
         }
 
 
-        [Route("DeleteAllId")]
         [HttpDelete("{id}")]
         public IActionResult delete(int id)
         {
@@ -79,7 +76,7 @@ namespace WepAPICoreTasks.Controllers
 
             db.Users.Remove(remove);
             db.SaveChanges();
-            return Ok();    
+            return Ok();
 
         }
     }

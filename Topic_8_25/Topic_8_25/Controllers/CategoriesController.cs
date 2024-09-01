@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Topic_8_25.DTOs;
 using Topic_8_25.Models;
 
@@ -75,6 +76,20 @@ namespace Topic_8_25.Controllers
             
             db.SaveChanges();
             return Ok();
+        }
+
+        [HttpDelete("id")]
+        public IActionResult Delete(int id)
+        {
+            if (id != null)
+            {
+                var category = db.Categories.FirstOrDefault(c => c.CategoryId == id);
+
+                db.Categories.Remove(category);
+                db.SaveChanges();
+            }
+            return Ok();
+
         }
 
     }

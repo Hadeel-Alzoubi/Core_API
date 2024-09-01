@@ -16,25 +16,25 @@ namespace WepAPICoreTasks
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
-
-            //// على شان يستقبل الفرونت 
-            //builder.Services.AddCors(options =>
-            //options.AddPolicy("Develpoment", builder =>
-            //{
-            //    builder.AllowAnyOrigin();
-            //    builder.AllowAnyMethod();
-            //    builder.AllowAnyHeader();
-            //})
-            //); // على شان يستقبل الفرونت 
-
             builder.Services.AddDbContext<MyDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionString")));
 
+
+            // على شان يستقبل الفرونت 
+            builder.Services.AddCors(options =>
+            options.AddPolicy("Develpoment", builder =>
+            {
+                builder.AllowAnyOrigin();
+                builder.AllowAnyMethod();
+                builder.AllowAnyHeader();
+            })
+            ); // على شان يستقبل الفرونت 
+
+
             var app = builder.Build();
 
-            //app.UseCors("Develpoment");// على شان يستقبل الفرونت 
-            // Configure the HTTP request pipeline.
+
+            //Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
@@ -45,7 +45,7 @@ namespace WepAPICoreTasks
 
             app.UseAuthorization();
 
-
+            app.UseCors("Develpoment");// على شان يستقبل الفرونت 
             app.MapControllers();
 
             app.Run();

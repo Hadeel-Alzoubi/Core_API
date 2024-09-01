@@ -14,7 +14,6 @@ namespace WepAPICoreTasks.Controllers
             db = _db;
         }
 
-        [Route("GetAll")]
         [HttpGet]
         public IActionResult getAll()
         {
@@ -22,11 +21,10 @@ namespace WepAPICoreTasks.Controllers
             return Ok(product);
         }
 
-        [Route("GetById")]
         [HttpGet("GetDataById{id:int:max(10)}")]
         public IActionResult get(int id)
         {
-        
+
             if (id < 0)
             {
                 return BadRequest();
@@ -35,10 +33,9 @@ namespace WepAPICoreTasks.Controllers
             var product = db.Products.Where(c => c.ProductId == id);
             return Ok(product);
 
-          
+
         }
 
-        [Route("GetByName")]
         [HttpGet("getname{name}")]
         public IActionResult getname(string name)
         {
@@ -46,17 +43,17 @@ namespace WepAPICoreTasks.Controllers
             {
                 return BadRequest();
             }
-         
+
             else
             {
                 var product = db.Products.Where(c => c.ProductName == name);
                 return Ok(product);
             }
 
-         
+
         }
 
-        [Route("DeleteById")]
+
         [HttpDelete("{id}")]
         public IActionResult delete(int id)
         {
@@ -75,7 +72,7 @@ namespace WepAPICoreTasks.Controllers
             db.Products.Remove(remove);
             db.SaveChanges();
             return Ok();
-          
+
         }
     }
 }
