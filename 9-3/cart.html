@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+         
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Category</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/product.html" onclick="clearCategory()">product</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="addproduct.html">Add Product</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="cart.html">cart</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="login.html">LogIn</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="register.html">Register</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+
+          </div>
+        </div>
+      </nav>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Your Shopping Cart</h1>
+        <form id="cart-form">
+            <table class="table table-bordered" id="table">
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">cartId</th>
+                        <th scope="col">Quantity</th>
+    
+                    </tr>
+                </thead>
+               
+            </table>
+            <div class="d-flex justify-content-between mt-4">
+                <!-- <button type="button" class="btn btn-outline-danger" onclick="clearCart()">Clear Cart</button> -->
+                <button type="submit" class="btn btn-primary">Checkout</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        debugger;
+        async function fun() {
+            const url = 'https://localhost:44319/api/Cart/GetToCartItem'
+            var data = await fetch(url);
+            var response = await data.json();
+
+            var table =  document.getElementById("table");
+
+            response.forEach(element => {
+                table.innerHTML += `
+                <tbody>
+                    <tr >
+                       <td >${element.product.productName}</td>
+                       <td>${element.cartId}</td>
+                    
+                       <td><input id="quantity" type="number" value="${element.quantity}" class="form-input"></td>
+                       <button type="button" class="btn btn-outline-danger" onclick="clearCart(${element.cartItemId})">Clear</button>
+                       <button type="button" class="btn btn-outline-primary" onclick="EditCart(${element.cartItemId})">Edit</button>
+                    </tr>
+                    </tbody>
+                `
+            });
+        }
+      fun();
+      async  function clearCart(id) {
+        debugger;
+        
+        event.preventDefault();
+            const urlDelete = `https://localhost:44319/api/Cart/DeleteItem/${id}`;
+          await fetch(urlDelete, {
+                    method: "DELETE",
+                    
+                });
+
+                window.alert("Cart deleted successfully");
+        //   alert("Success")
+        
+        }
+        async function EditCart(id) {
+    // Prevent default behavior if the function is used with an event handler
+    if (event) event.preventDefault();
+    
+    const updateUrl = `https://localhost:44319/api/Cart/${id}`;
+    var quantityInput = document.getElementById('product-quantity'); // Make sure ID matches
+
+    if (!quantityInput) {
+        console.error("Quantity input not found.");
+        return;
+    }
+
+    var quantityValue = quantityInput.value;
+
+    var data = {
+        quantity: quantityValue
+    };
+
+    try {
+        let response = await fetch(updateUrl, {
+            method: "PUT",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+            window.alert("Item modified successfully.");
+        } else {
+            window.alert("Failed to modify the item.");
+        }
+    } catch (error) {
+        console.error("Error updating cart:", error);
+        window.alert("An error occurred while updating the item.");
+    }
+}
+
+async function Save(event) {
+    event.preventDefault();  // Prevent default form submission
+
+    // Example logic to save the form data
+    var form = document.getElementById("formAddProduct");
+    var formData = new FormData(form);
+
+    // Here you could handle form submission to your API
+    // Example: post the form data using fetch or handle it differently
+
+    window.alert("Form data would be saved!");
+    // Redirect or update UI as needed
+}
+
+//         async function EditCart(id) {
+// debugger;
+// event.preventDefault();
+//             const updateUrl = `https://localhost:44319/api/Cart/${id}`
+//             var quantityInput = document.getElementById('quantity');
+
+//             var quantityValue = quantityInput.value;
+
+//             var data = {
+//                 quantity : quantityValue
+//             }
+
+//             let response = await fetch(updateUrl,{
+//                 method: "PUT",
+    
+//                 body: JSON.stringify(data),
+//                 headers:{
+//       'Content-Type': 'application/json'
+//    }
+//             })
+//             var data=response;
+        
+//             window.alert("item modified sucssefuly");
+//         }
+    </script>
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
